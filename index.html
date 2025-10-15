@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Помоги Nowkie! — Получи 500 ₽ бесплатно</title>
+    <title>Поддержи Nowkie — Выиграй спор с бонусом!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,108 +13,180 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #121212;
-            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #1a1a1a;
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
+        /* Хедер */
         .header {
-            background: #000;
-            padding: 20px;
-            text-align: center;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
         }
         
         .logo {
-            font-size: 32px;
-            font-weight: bold;
-            color: #ff0000;
+            font-size: 28px;
+            font-weight: 700;
+            color: #e63946;
+            text-transform: uppercase;
         }
         
+        .nav {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-link {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #e63946;
+        }
+        
+        /* Геро-секция */
         .hero {
-            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 40px 30px;
             text-align: center;
-            background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            position: relative;
         }
         
         .hero h1 {
-            font-size: 36px;
+            font-size: 42px;
+            font-weight: 300;
+            color: #1a1a1a;
             margin-bottom: 20px;
-            color: #ff0000;
         }
         
         .hero p {
             font-size: 18px;
+            color: #4a4a4a;
             margin-bottom: 30px;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
         
         .hero-image {
             width: 100%;
-            max-width: 560px;
+            max-width: 600px;
             height: auto;
             border-radius: 8px;
             margin: 20px auto;
             display: block;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-            image-rendering: -webkit-optimize-contrast; /* Улучшение резкости */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         
+        /* Анимированная кнопка */
         .btn {
-            background: #ff0000;
+            background: linear-gradient(90deg, #e63946 0%, #f1faee 100%);
             color: #fff;
             border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 6px;
+            padding: 15px 35px;
+            font-size: 20px;
+            font-weight: 500;
+            border-radius: 50px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            transition: background 0.3s;
+            position: relative;
+            overflow: hidden;
+            animation: pulse 2s infinite;
+            transition: transform 0.3s;
         }
         
         .btn:hover {
-            background: #cc0000;
+            transform: scale(1.05);
+            animation-play-state: paused;
         }
         
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(230, 57, 70, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0); }
+        }
+        
+        /* Преимущества */
         .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 40px 20px;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 60px auto;
+            padding: 0 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
         
         .feature {
-            background: #1e1e1e;
-            padding: 20px;
-            border-radius: 8px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
         }
         
         .feature h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: #ff0000;
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #e63946;
         }
         
-        .footer {
-            background: #000;
-            padding: 20px;
-            text-align: center;
-            font-size: 14px;
+        .feature p {
+            font-size: 16px;
             color: #666;
         }
         
+        /* Футер */
+        .footer {
+            background: #1a1a1a;
+            padding: 30px 0;
+            text-align: center;
+            color: #ccc;
+            margin-top: 60px;
+        }
+        
+        /* Адаптивность */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 28px;
+                font-size: 32px;
             }
             .hero p {
                 font-size: 16px;
+            }
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav {
+                flex-direction: column;
+                text-align: center;
             }
             .hero-image {
                 max-width: 100%;
@@ -124,39 +197,45 @@
 <body>
     <!-- Хедер -->
     <header class="header">
-        <div class="logo">Nowkie Support</div>
+        <div class="header-container">
+            <div class="logo">Nowkie Support</div>
+            <nav class="nav">
+                <a href="#" class="nav-link">О проекте</a>
+                <a href="#" class="nav-link">Поддержка</a>
+                <a href="#" class="nav-link">Контакты</a>
+            </nav>
+        </div>
     </header>
 
     <!-- Геро-секция -->
     <section class="hero">
-        <h1>Помоги Nowkie в его споре!</h1>
-        <p>Nowkie борется за правду в спорах с Эксайлом и другими. Поддержи его, заказав карту по моей реферальной ссылке — и получи 500 ₽ бесплатно! Это реальная помощь: трафик от фанатов поможет Nowkie расти.</p>
-        <!-- Новая ссылка на изображение с ImgBB -->
+        <h1>Поддержи Nowkie и выиграй спор!</h1>
+        <p>Помоги Nowkie победить в споре с Эксайлом, заказав карту по моей реферальной ссылке. Получи 500 ₽ бонус и стань частью его успеха!</p>
         <img src="https://i.ibb.co/SwzWmRSf/IMG-20251016-002549-488.jpg" alt="Nowkie из Telegram" class="hero-image" loading="lazy">
         <br>
-        <a href="https://www.tbank.ru/baf/5JkcfOpf1OU" class="btn">Помочь Nowkie и получить 500 ₽ бесплатно!</a>
-        <p style="font-size: 14px; margin-top: 20px; opacity: 0.8;">(Кнопка ведёт на официальный Т-Банк. Бонус за заказ карты Black.)</p>
+        <a href="https://www.tbank.ru/baf/5JkcfOpf1OU" class="btn">Помочь Nowkie</a>
+        <p style="font-size: 14px; margin-top: 20px; color: #4a4a4a;">(Кнопка ведёт на Т-Банк. Бонус за карту Black.)</p>
     </section>
 
     <!-- Преимущества -->
     <section class="features">
         <div class="feature">
-            <h3>Что ты получишь?</h3>
-            <p>Карту с кэшбэком до 30%, бесплатным обслуживанием и моментальным выпуском. Плюс 500 ₽ на счёт!</p>
+            <h3>Твой бонус</h3>
+            <p>Получи 500 ₽ на карту при заказе через мою ссылку!</p>
         </div>
         <div class="feature">
-            <h3>Как это помогает Nowkie?</h3>
-            <p>Каждый заказ по ссылке — это +1 фанат для Nowkie. Твой трафик поможет ему в спорах и подкастах!</p>
+            <h3>Поддержка Nowkie</h3>
+            <p>Каждый заказ — это +1 фанат и трафик для его канала.</p>
         </div>
         <div class="feature">
-            <h3>Почему сейчас?</h3>
-            <p>Спор на пике! Поддержи Nowkie, пока тема горячая, и сам заработай на бонусах.</p>
+            <h3>Победа в споре</h3>
+            <p>Докажи, что ты на стороне Nowkie, пока тема горячая!</p>
         </div>
     </section>
 
     <!-- Футер -->
     <footer class="footer">
-        <p>Это фанатский тест-проект для поддержки Nowkie. Не официальный сайт. © 2025 Fan Support. Все права на контент — у Nowkie.</p>
+        <p>Это фанатский проект для поддержки Nowkie. Не официальный сайт. © 2025 Nowkie Support. Все права принадлежат Nowkie.</p>
     </footer>
 </body>
 </html>
