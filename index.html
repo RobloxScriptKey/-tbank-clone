@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Закажите карту Т-Банк и получите бонусы!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Помоги Nowkie! — Получи 500 ₽ бесплатно</title>
     <style>
         * {
             margin: 0;
@@ -13,220 +12,110 @@
         }
         
         body {
-            font-family: 'Inter', sans-serif;
-            color: #000;
-            line-height: 1.5;
-            background-color: #fff;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            line-height: 1.6;
         }
         
-        /* Хедер */
         .header {
             background: #000;
-            color: #fff;
-            padding: 12px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
+            padding: 20px;
+            text-align: center;
         }
         
         .logo {
-            font-size: 24px;
+            font-size: 32px;
             font-weight: bold;
-            color: #ff0000; /* Красный акцент Т-Банка */
+            color: #ff0000; /* Красный акцент, как в видео Nowkie */
         }
         
-        .nav {
-            display: flex;
-            gap: 20px;
+        .hero {
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
         }
         
-        .nav-link {
-            color: #fff;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 400;
-            transition: color 0.3s;
-        }
-        
-        .nav-link:hover {
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
             color: #ff0000;
         }
         
-        .header-actions {
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .video-placeholder {
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
+            background: #333;
+            margin: 20px auto;
+            border-radius: 8px;
             display: flex;
-            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            color: #666;
         }
         
         .btn {
             background: #ff0000;
             color: #fff;
             border: none;
-            padding: 10px 20px;
+            padding: 15px 30px;
+            font-size: 18px;
             border-radius: 6px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: background 0.3s;
             cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
         }
         
         .btn:hover {
             background: #cc0000;
         }
         
-        .btn-secondary {
-            background: transparent;
-            border: 1px solid #fff;
-        }
-        
-        .btn-secondary:hover {
-            background: #fff;
-            color: #000;
-        }
-        
-        /* Геро-секция */
-        .hero {
-            background: linear-gradient(135deg, #000 0%, #333 100%);
-            color: #fff;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        
-        .hero-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 40px;
-            font-weight: 300;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        
-        /* Основной контент */
-        .main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        .section {
-            margin-bottom: 60px;
-        }
-        
-        .section h2 {
-            font-size: 28px;
-            font-weight: 300;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
         .feature {
-            background: #f7f7f7;
-            border-radius: 8px;
+            background: #1e1e1e;
             padding: 20px;
+            border-radius: 8px;
             text-align: center;
-        }
-        
-        .feature img {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 15px;
         }
         
         .feature h3 {
             font-size: 20px;
-            font-weight: 500;
             margin-bottom: 10px;
+            color: #ff0000;
         }
         
-        .feature p {
+        .footer {
+            background: #000;
+            padding: 20px;
+            text-align: center;
             font-size: 14px;
             color: #666;
         }
         
-        /* Футер */
-        .footer {
-            background: #000;
-            color: #fff;
-            padding: 40px 20px;
-        }
-        
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-        
-        .footer-section h4 {
-            font-size: 16px;
-            font-weight: 500;
-            margin-bottom: 15px;
-            color: #ff0000;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-section a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        
-        .footer-section a:hover {
-            color: #fff;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            font-size: 12px;
-            color: #ccc;
-        }
-        
-        /* Мобильная адаптивность */
         @media (max-width: 768px) {
-            .nav {
-                display: none; /* Скрываем меню на мобильных */
-            }
             .hero h1 {
                 font-size: 28px;
             }
             .hero p {
                 font-size: 16px;
-            }
-            .header-actions {
-                flex-direction: column;
-                gap: 5px;
             }
         }
     </style>
@@ -234,85 +123,40 @@
 <body>
     <!-- Хедер -->
     <header class="header">
-        <div class="header-container">
-            <div class="logo">Т-Банк</div>
-            <nav class="nav">
-                <a href="#" class="nav-link">Карты</a>
-                <a href="#" class="nav-link">Кредиты</a>
-                <a href="#" class="nav-link">Вклады</a>
-                <a href="#" class="nav-link">Поддержка</a>
-            </nav>
-            <div class="header-actions">
-                <a href="#" class="btn btn-secondary">Войти</a>
-                <a href="https://tbank.ru/referral?ref=your_id" class="btn">Заказать карту</a>
-            </div>
-        </div>
+        <div class="logo">Nowkie Support</div>
     </header>
 
     <!-- Геро-секция -->
     <section class="hero">
-        <div class="hero-container">
-            <h1>Получите карту Т-Банк с бонусами!</h1>
-            <p>Кэшбэк до 30%, бесплатное обслуживание и моментальный выпуск. Закажите карту по моей ссылке и получите бонусы!</p>
-            <a href="https://tbank.ru/referral?ref=your_id" class="btn">Заказать карту</a>
+        <h1>Помоги Nowkie в его споре!</h1>
+        <p>Nowkie борется за правду в спорах с Эксайлом и другими. Поддержи его, заказав карту по моей реферальной ссылке — и получи 500 ₽ бесплатно! Это реальная помощь: трафик от фанатов поможет Nowkie расти.</p>
+        <div class="video-placeholder">
+            [Вставь видео Nowkie здесь, например, embed YouTube]
+        </div>
+        <br>
+        <a href="https://www.tbank.ru/baf/5JkcfOpf1OU" class="btn">Помочь Nowkie и получить 500 ₽ бесплатно!</a>
+        <p style="font-size: 14px; margin-top: 20px; opacity: 0.8;">(Кнопка ведёт на официальный Т-Банк. Бонус за заказ карты Black.)</p>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features">
+        <div class="feature">
+            <h3>Что ты получишь?</h3>
+            <p>Карту с кэшбэком до 30%, бесплатным обслуживанием и моментальным выпуском. Плюс 500 ₽ на счёт!</p>
+        </div>
+        <div class="feature">
+            <h3>Как это помогает Nowkie?</h3>
+            <p>Каждый заказ по ссылке — это +1 фанат для Nowkie. Твой трафик поможет ему в спорах и подкастах!</p>
+        </div>
+        <div class="feature">
+            <h3>Почему сейчас?</h3>
+            <p>Спор на пике! Поддержи Nowkie, пока тема горячая, и сам заработай на бонусах.</p>
         </div>
     </section>
 
-    <!-- Основной контент -->
-    <main class="main">
-        <section class="section">
-            <h2>Почему выбирают Т-Банк?</h2>
-            <div class="features">
-                <div class="feature">
-                    <img src="https://via.placeholder.com/50?text=Кэшбэк" alt="Кэшбэк">
-                    <h3>Кэшбэк до 30%</h3>
-                    <p>Возвращайте часть денег за покупки в любимых категориях.</p>
-                </div>
-                <div class="feature">
-                    <img src="https://via.placeholder.com/50?text=Бесплатно" alt="Бесплатно">
-                    <h3>Без комиссий</h3>
-                    <p>Бесплатные переводы и снятие наличных в любых банкоматах.</p>
-                </div>
-                <div class="feature">
-                    <img src="https://via.placeholder.com/50?text=Онлайн" alt="Онлайн">
-                    <h3>Управление онлайн</h3>
-                    <p>Контролируйте расходы через удобное приложение.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
     <!-- Футер -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>Продукты</h4>
-                <ul>
-                    <li><a href="#">Дебетовые карты</a></li>
-                    <li><a href="#">Кредиты</a></li>
-                    <li><a href="#">Вклады</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Поддержка</h4>
-                <ul>
-                    <li><a href="#">Чат с поддержкой</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Контакты</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>О банке</h4>
-                <ul>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Карьера</a></li>
-                    <li><a href="#">Новости</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Т-Банк. Все права защищены. Лицензия Банка России № 2679. Это тестовая страница, созданная для демонстрации.</p>
-        </div>
+        <p>Это фанатский тест-проект для поддержки Nowkie. Не официальный сайт. © 2025 Fan Support. Все права на контент — у Nowkie.</p>
     </footer>
 </body>
 </html>
