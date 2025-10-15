@@ -27,7 +27,7 @@
         .logo {
             font-size: 32px;
             font-weight: bold;
-            color: #ff0000; /* Красный акцент, как в видео Nowkie */
+            color: #ff0000;
         }
         
         .hero {
@@ -50,17 +50,13 @@
             margin-right: auto;
         }
         
-        .video-placeholder {
+        .hero-image {
             width: 100%;
             max-width: 560px;
-            height: 315px;
-            background: #333;
-            margin: 20px auto;
+            height: auto;
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
+            margin: 20px auto;
+            display: block;
         }
         
         .btn {
@@ -117,6 +113,9 @@
             .hero p {
                 font-size: 16px;
             }
+            .hero-image {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -130,9 +129,8 @@
     <section class="hero">
         <h1>Помоги Nowkie в его споре!</h1>
         <p>Nowkie борется за правду в спорах с Эксайлом и другими. Поддержи его, заказав карту по моей реферальной ссылке — и получи 500 ₽ бесплатно! Это реальная помощь: трафик от фанатов поможет Nowkie расти.</p>
-        <div class="video-placeholder">
-            [Вставь видео Nowkie здесь, например, embed YouTube]
-        </div>
+        <!-- Замени src на прямую ссылку на изображение из https://t.me/nowkies/3081 -->
+        <img src="https://via.placeholder.com/560x315?text=Nowkie" alt="Nowkie" class="hero-image">
         <br>
         <a href="https://www.tbank.ru/baf/5JkcfOpf1OU" class="btn">Помочь Nowkie и получить 500 ₽ бесплатно!</a>
         <p style="font-size: 14px; margin-top: 20px; opacity: 0.8;">(Кнопка ведёт на официальный Т-Банк. Бонус за заказ карты Black.)</p>
