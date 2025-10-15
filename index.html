@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Поддержи Nowkie — Выиграй спор с бонусом!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Nowkie Support — Официальная партнерская программа</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,21 +13,23 @@
         }
         
         body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #ffffff;
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
         }
         
-        /* Хедер */
+        /* Хедер в стиле ФПИ Банк */
         .header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 15px 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 18px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .header-container {
@@ -36,161 +38,343 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 30px;
+            padding: 0 40px;
         }
         
         .logo {
-            font-size: 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 700;
-            color: #e63946;
-            text-transform: uppercase;
+            color: white;
+            font-size: 18px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .nav {
             display: flex;
-            gap: 25px;
+            gap: 35px;
         }
         
         .nav-link {
-            color: #1a1a1a;
+            color: #2a5298;
             text-decoration: none;
-            font-weight: 400;
-            transition: color 0.3s;
-        }
-        
-        .nav-link:hover {
-            color: #e63946;
-        }
-        
-        /* Геро-секция */
-        .hero {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 40px 30px;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
             position: relative;
         }
         
-        .hero h1 {
-            font-size: 42px;
-            font-weight: 300;
-            color: #1a1a1a;
-            margin-bottom: 20px;
+        .nav-link:hover {
+            color: #ff6b6b;
         }
         
-        .hero p {
-            font-size: 18px;
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #ff6b6b;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Геро-секция в стиле банка */
+        .hero {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 107, 107, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: rotate(45deg) translateX(-100%); }
+            100% { transform: rotate(45deg) translateX(100%); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 22px;
             color: #4a4a4a;
             margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            font-weight: 400;
+        }
+        
+        .hero-image-container {
+            position: relative;
+            margin: 40px auto;
+            max-width: 600px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-image-container:hover {
+            transform: translateY(-5px);
         }
         
         .hero-image {
             width: 100%;
-            max-width: 600px;
             height: auto;
-            border-radius: 8px;
-            margin: 20px auto;
             display: block;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
         }
         
-        /* Анимированная кнопка */
+        /* Анимированная кнопка в стиле банка */
+        .btn-container {
+            position: relative;
+            display: inline-block;
+            margin: 30px 0;
+        }
+        
         .btn {
-            background: linear-gradient(90deg, #e63946 0%, #f1faee 100%);
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
             color: #fff;
             border: none;
-            padding: 15px 35px;
+            padding: 20px 50px;
             font-size: 20px;
-            font-weight: 500;
-            border-radius: 50px;
+            font-weight: 600;
+            border-radius: 12px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
             position: relative;
             overflow: hidden;
-            animation: pulse 2s infinite;
-            transition: transform 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
         
         .btn:hover {
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
             animation-play-state: paused;
         }
         
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(230, 57, 70, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0); }
+        .btn-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: inherit;
+            animation: pulse 2s infinite;
+            z-index: -1;
         }
         
-        /* Преимущества */
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1.1); opacity: 0; }
+        }
+        
+        /* Преимущества в стиле банковских карточек */
         .features {
             max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 30px;
+            margin: 80px auto;
+            padding: 0 40px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
         .feature {
-            background: #fff;
-            padding: 25px;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 30px;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
         }
         
         .feature:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
         }
         
         .feature h3 {
             font-size: 22px;
             margin-bottom: 15px;
-            color: #e63946;
+            color: #1e3c72;
+            font-weight: 600;
         }
         
         .feature p {
             font-size: 16px;
             color: #666;
+            line-height: 1.6;
         }
         
-        /* Футер */
+        /* Футер в стиле банка */
         .footer {
-            background: #1a1a1a;
-            padding: 30px 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px 0;
             text-align: center;
             color: #ccc;
-            margin-top: 60px;
+            margin-top: 80px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .footer p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 14px;
+            line-height: 1.6;
         }
         
         /* Адаптивность */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-            .hero p {
-                font-size: 16px;
-            }
             .header-container {
                 flex-direction: column;
-                gap: 15px;
+                gap: 20px;
+                padding: 0 20px;
             }
+            
             .nav {
                 flex-direction: column;
                 text-align: center;
+                gap: 15px;
             }
-            .hero-image {
-                max-width: 100%;
+            
+            .hero {
+                margin: 30px auto;
+                padding: 40px 20px;
             }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .features {
+                padding: 0 20px;
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                padding: 18px 40px;
+                font-size: 18px;
+            }
+        }
+        
+        /* Дополнительные банковские элементы */
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin-top: 20px;
+            color: #1e3c72;
+            font-weight: 500;
+        }
+        
+        .bank-stamp {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            text-align: center;
+            transform: rotate(15deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -198,9 +382,13 @@
     <!-- Хедер -->
     <header class="header">
         <div class="header-container">
-            <div class="logo">Nowkie Support</div>
+            <div class="logo">
+                <div class="logo-icon">N</div>
+                <div class="logo-text">Nowkie Support</div>
+            </div>
             <nav class="nav">
-                <a href="#" class="nav-link">О проекте</a>
+                <a href="#" class="nav-link">О программе</a>
+                <a href="#" class="nav-link">Условия</a>
                 <a href="#" class="nav-link">Поддержка</a>
                 <a href="#" class="nav-link">Контакты</a>
             </nav>
@@ -209,33 +397,51 @@
 
     <!-- Геро-секция -->
     <section class="hero">
-        <h1>Поддержи Nowkie и выиграй спор!</h1>
-        <p>Помоги Nowkie победить в споре с Эксайлом, заказав карту по моей реферальной ссылке. Получи 500 ₽ бонус и стань частью его успеха!</p>
-        <img src="https://i.ibb.co/SwzWmRSf/IMG-20251016-002549-488.jpg" alt="Nowkie из Telegram" class="hero-image" loading="lazy">
-        <br>
-        <a href="https://www.tbank.ru/baf/5JkcfOpf1OU" class="btn">Помочь Nowkie</a>
-        <p style="font-size: 14px; margin-top: 20px; color: #4a4a4a;">(Кнопка ведёт на Т-Банк. Бонус за карту Black.)</p>
+        <div class="bank-stamp">Одобрено<br>Nowkie</div>
+        <div class="hero-content">
+            <h1>Партнерская программа Nowkie</h1>
+            <p class="hero-subtitle">Поддержи Nowkie в споре с Эксайлом и получи бонус 500 ₽ за оформление карты</p>
+            
+            <div class="hero-image-container">
+                <img src="https://i.ibb.co/SwzWmRSf/IMG-20251016-002549-488.jpg" alt="Nowkie из Telegram" class="hero-image" loading="lazy">
+            </div>
+            
+            <div class="btn-container">
+                <a href="https://www.tbank.ru/baf/5JkcfOpf1OU" class="btn">
+                    Помочь Nowkie
+                    <div class="btn-pulse"></div>
+                </a>
+            </div>
+            
+            <div class="security-badge">
+                <span>🔒</span>
+                <span>Безопасное подключение к Т-Банк</span>
+            </div>
+        </div>
     </section>
 
     <!-- Преимущества -->
     <section class="features">
         <div class="feature">
-            <h3>Твой бонус</h3>
-            <p>Получи 500 ₽ на карту при заказе через мою ссылку!</p>
+            <div class="feature-icon">₽</div>
+            <h3>Мгновенный бонус</h3>
+            <p>Получите 500 рублей сразу после активации карты Black через нашу партнерскую ссылку</p>
         </div>
         <div class="feature">
+            <div class="feature-icon">👑</div>
             <h3>Поддержка Nowkie</h3>
-            <p>Каждый заказ — это +1 фанат и трафик для его канала.</p>
+            <p>Ваш заказ напрямую поддерживает Nowkie и помогает ему выиграть важный спор</p>
         </div>
         <div class="feature">
-            <h3>Победа в споре</h3>
-            <p>Докажи, что ты на стороне Nowkie, пока тема горячая!</p>
+            <div class="feature-icon">⚡</div>
+            <h3>Ограниченное время</h3>
+            <p>Успейте принять участие, пока спор актуален и Nowkie нуждается в вашей поддержке</p>
         </div>
     </section>
 
     <!-- Футер -->
     <footer class="footer">
-        <p>Это фанатский проект для поддержки Nowkie. Не официальный сайт. © 2025 Nowkie Support. Все права принадлежат Nowkie.</p>
+        <p>Nowkie Support — официальная партнерская программа. Не является официальным сайтом банка. Все права защищены. © 2025 Nowkie Support</p>
     </footer>
 </body>
 </html>
